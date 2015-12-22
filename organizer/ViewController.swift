@@ -10,9 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var inputField: UITextField!
+    @IBOutlet weak var outputLabel: UILabel!
+    @IBAction func sendTask(sender: UIButton) {
+        
+        outputLabel.text = inputField.text
+        
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -8,16 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TaskManagerViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var inputField: UITextField!
-    @IBOutlet weak var outputLabel: UILabel!
+
     @IBAction func sendTask(sender: UIButton) {
         
-        outputLabel.text = inputField.text
         
     }
 
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 4
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+    
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        cell.textLabel?.text = "HOLA"
+        return cell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

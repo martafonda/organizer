@@ -20,6 +20,7 @@ class TaskManagerViewController: UIViewController, UITableViewDelegate {
         cellContent.append(inputField.text!)
         inputField.text = ""
         todoListTable.reloadData()
+        NSUserDefaults.standardUserDefaults().setObject(cellContent, forKey: "cellContent")
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -36,8 +37,9 @@ class TaskManagerViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        if NSUserDefaults.standardUserDefaults().objectForKey("cellContent") != nil {
+            cellContent = NSUserDefaults.standardUserDefaults().objectForKey("cellContent") as! [String]
+        }
     }
 
     override func didReceiveMemoryWarning() {

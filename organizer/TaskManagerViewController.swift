@@ -44,6 +44,15 @@ class TaskManagerViewController: UIViewController, UITableViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        inputField.resignFirstResponder()
+        return true
+    }
 
 }
 

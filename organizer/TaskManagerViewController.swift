@@ -35,6 +35,15 @@ class TaskManagerViewController: UIViewController, UITableViewDelegate {
         return cell
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+    
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            cellContent.removeAtIndex(indexPath.row)
+            NSUserDefaults.standardUserDefaults().setObject(cellContent, forKey: "cellContent")
+            todoListTable.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if NSUserDefaults.standardUserDefaults().objectForKey("cellContent") != nil {

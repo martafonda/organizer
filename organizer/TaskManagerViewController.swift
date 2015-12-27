@@ -10,22 +10,27 @@ import UIKit
 
 class TaskManagerViewController: UIViewController, UITableViewDelegate {
 
+    @IBOutlet weak var todoListTable: UITableView!
+    var cellContent = [String]()
+    
     @IBOutlet weak var inputField: UITextField!
 
     @IBAction func sendTask(sender: UIButton) {
         
-        
+        cellContent.append(inputField.text!)
+        inputField.text = ""
+        todoListTable.reloadData()
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 4
+        return cellContent.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
     
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = "HOLA"
+        cell.textLabel?.text = cellContent[indexPath.row]
         return cell
     }
     
@@ -39,7 +44,6 @@ class TaskManagerViewController: UIViewController, UITableViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 

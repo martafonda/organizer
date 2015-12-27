@@ -99,6 +99,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="inputField" destination="gnl-S5-D1m" id="fkE-mP-SLJ"/>
+                        <outlet property="todoListTable" destination="1zr-nf-wW5" id="zUn-gg-8Bk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
